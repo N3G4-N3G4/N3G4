@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using DatabaseControl;
@@ -13,7 +13,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     public GameObject registerParent;
     public GameObject loggedInParent;
     public GameObject loadingParent;
-    public Animator amin;
+    public Animator lol;
 
     //These are all the InputFields which we need in order to get the entered usernames, passwords, etc
     public TMP_InputField Login_UsernameField;
@@ -72,8 +72,9 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             //Username and Password were correct. Stop showing 'Loading...' and show the LoggedIn UI. And set the text to display the username.
             ResetAllUIElements();
             loadingParent.gameObject.SetActive(false);
-            loggedInParent.gameObject.SetActive(true);
-            LoggedIn_DisplayUsernameText.text = "Logged In As: " + playerUsername;
+            lol.SetTrigger("STRART");
+            lol.SetTrigger("PYRA");
+            LoggedIn_DisplayUsernameText.text = "Account: "  + playerUsername;
         } else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to LoginUI
@@ -111,8 +112,9 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             //Username and Password were valid. Account has been created. Stop showing 'Loading...' and show the loggedIn UI and set text to display the username.
             ResetAllUIElements();
             loadingParent.gameObject.SetActive(false);
-            loggedInParent.gameObject.SetActive(true);
-            LoggedIn_DisplayUsernameText.text = "Logged In As: " + playerUsername;
+            lol.SetTrigger("STRART");
+            lol.SetTrigger("PYRA");
+            LoggedIn_DisplayUsernameText.text = "Account: " + playerUsername;
         } else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to RegisterUI
@@ -152,7 +154,8 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         {
             //The player's data was retrieved. Goes back to loggedIn UI and displays the retrieved data in the InputField
             loadingParent.gameObject.SetActive(false);
-            loggedInParent.gameObject.SetActive(true);
+            lol.SetTrigger("STRART");
+            lol.SetTrigger("PYRA");
             LoggedIn_DataOutputField.text = response;
         }
     }
