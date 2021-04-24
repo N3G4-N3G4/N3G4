@@ -74,6 +74,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             loadingParent.gameObject.SetActive(false);
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
+            lol.SetTrigger("COLOR");
             LoggedIn_DisplayUsernameText.text = "Account: "  + playerUsername;
         } else
         {
@@ -114,6 +115,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             loadingParent.gameObject.SetActive(false);
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
+            lol.SetTrigger("COLOR");
             LoggedIn_DisplayUsernameText.text = "Account: " + playerUsername;
         } else
         {
@@ -156,6 +158,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             loadingParent.gameObject.SetActive(false);
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
+            lol.SetTrigger("COLOR");
             LoggedIn_DataOutputField.text = response;
         }
     }
@@ -172,7 +175,9 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         {
             //The data string was set correctly. Goes back to LoggedIn UI
             loadingParent.gameObject.SetActive(false);
-            loggedInParent.gameObject.SetActive(true);
+            lol.SetTrigger("STRART");
+            lol.SetTrigger("PYRA");
+            lol.SetTrigger("COLOR");
         }
         else
         {
