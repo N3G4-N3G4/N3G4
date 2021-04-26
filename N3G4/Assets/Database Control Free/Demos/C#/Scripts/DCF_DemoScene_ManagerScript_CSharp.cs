@@ -14,6 +14,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     public GameObject loggedInParent;
     public GameObject loadingParent;
     public Animator lol;
+    public Animator lel;
 
     //These are all the InputFields which we need in order to get the entered usernames, passwords, etc
     public TMP_InputField Login_UsernameField;
@@ -79,7 +80,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         } else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to LoginUI
-            loadingParent.gameObject.SetActive(false);
+            
             loginParent.gameObject.SetActive(true);
             if (response == "UserError")
             {
@@ -112,7 +113,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         {
             //Username and Password were valid. Account has been created. Stop showing 'Loading...' and show the loggedIn UI and set text to display the username.
             ResetAllUIElements();
-            loadingParent.gameObject.SetActive(false);
+            
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
             lol.SetTrigger("COLOR");
@@ -120,7 +121,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         } else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to RegisterUI
-            loadingParent.gameObject.SetActive(false);
+            
             registerParent.gameObject.SetActive(true);
             if (response == "UserError")
             {
@@ -149,13 +150,13 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             playerUsername = "";
             playerPassword = "";
             loginParent.gameObject.SetActive(true);
-            loadingParent.gameObject.SetActive(false);
+            
             Login_ErrorText.text = "Error: Unknown Error. Please try again later.";
         }
         else
         {
             //The player's data was retrieved. Goes back to loggedIn UI and displays the retrieved data in the InputField
-            loadingParent.gameObject.SetActive(false);
+            
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
             lol.SetTrigger("COLOR");
@@ -174,7 +175,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         if (response == "Success")
         {
             //The data string was set correctly. Goes back to LoggedIn UI
-            loadingParent.gameObject.SetActive(false);
+            
             lol.SetTrigger("STRART");
             lol.SetTrigger("PYRA");
             lol.SetTrigger("COLOR");
@@ -186,7 +187,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             playerUsername = "";
             playerPassword = "";
             loginParent.gameObject.SetActive(true);
-            loadingParent.gameObject.SetActive(false);
+            
             Login_ErrorText.text = "Error: Unknown Error. Please try again later.";
         }
     }
@@ -207,7 +208,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             {
                 //Username and password seem reasonable. Change UI to 'Loading...'. Start the Coroutine which tries to log the player in.
                 loginParent.gameObject.SetActive(false);
-                loadingParent.gameObject.SetActive(true);
+                lel.SetTrigger("True");
                 StartCoroutine(LoginUser());
             }
             else
@@ -247,7 +248,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
                 {
                     //Username and passwords seem reasonable. Switch to 'Loading...' and start the coroutine to try and register an account on the server
                     registerParent.gameObject.SetActive(false);
-                    loadingParent.gameObject.SetActive(true);
+                    lel.SetTrigger("True");
                     StartCoroutine(RegisterUser());
                 }
                 else
@@ -278,14 +279,14 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     public void LoggedIn_SaveDataButtonPressed ()
     {
         //Called when the player hits 'Set Data' to change the data string on their account. Switches UI to 'Loading...' and starts coroutine to set the players data string on the server
-        loadingParent.gameObject.SetActive(true);
+        lel.SetTrigger("True");
         loggedInParent.gameObject.SetActive(false);
         StartCoroutine(SetData(LoggedIn_DataInputField.text));
     }
     public void LoggedIn_LoadDataButtonPressed ()
     {
         //Called when the player hits 'Get Data' to retrieve the data string on their account. Switches UI to 'Loading...' and starts coroutine to get the players data string from the server
-        loadingParent.gameObject.SetActive(true);
+        lel.SetTrigger("True");
         loggedInParent.gameObject.SetActive(false);
         StartCoroutine(GetData());
     }
