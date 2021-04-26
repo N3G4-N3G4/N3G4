@@ -14,19 +14,18 @@ public class EFFECTOES : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
+    {} 
 public void PRESSED()
     {
-    	amin.SetBool("started", true);
-    	amin.SetBool("ended", false);
+    	amin.SetBool("started" , true);
+        //lol
+        return;
+        amin.SetBool("started" , false);
+    
+
+    
 
     }
-public void PRESSEDOFF()
-	{
-		amin.SetBool("ended", true);
-		amin.SetBool("started", false);
 
-	}
+
 }
