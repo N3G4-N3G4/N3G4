@@ -122,7 +122,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to RegisterUI
             
-            registerParent.gameObject.SetActive(true);
+            
             if (response == "UserError")
             {
                 //The username has already been taken. Player needs to choose another. Shows error message.
@@ -227,7 +227,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         //Called when the player hits register on the Login UI, so switches to the Register UI
         ResetAllUIElements();
         loginParent.gameObject.SetActive(false);
-        registerParent.gameObject.SetActive(true);
+        
     }
     public void Register_RegisterButtonPressed ()
     {
@@ -247,7 +247,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
                 if (playerPassword == confirmedPassword)
                 {
                     //Username and passwords seem reasonable. Switch to 'Loading...' and start the coroutine to try and register an account on the server
-                    registerParent.gameObject.SetActive(false);
+                    
                     lel.SetTrigger("True");
                     StartCoroutine(RegisterUser());
                 }
@@ -274,7 +274,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         //Called when the player presses the 'Back' button on the register UI. Switches back to the Login UI
         ResetAllUIElements();
         loginParent.gameObject.SetActive(true);
-        registerParent.gameObject.SetActive(false);
+        
     }
     public void LoggedIn_SaveDataButtonPressed ()
     {
