@@ -25,4 +25,12 @@ public void unsetted()
 	{
 		lkl.SetBool("setting", false);
 	}
+public void config()
+  {
+        lkl.SetBool("config", true);
+  }
+public void configoff()
+  {
+        lkl.SetBool("config", false);
+  }
 }
