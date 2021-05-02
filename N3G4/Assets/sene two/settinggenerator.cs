@@ -6,6 +6,7 @@ using UnityEngine;
 public class settinggenerator : MonoBehaviour
 {
 	public Animator lkl;
+    public Animator lol;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +28,10 @@ public void unsetted()
 	}
 public void config()
   {
-        lkl.SetBool("config", true);
+        lol.SetBool("config", true);
   }
 public void configoff()
   {
-        lkl.SetBool("config", false);
+        lol.SetBool("config", false);
   }
 }
